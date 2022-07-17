@@ -1,0 +1,9 @@
+# 项目排除路径
+/health_backend/target/
+/health_common/target/
+/health_dao/target/
+/health_jobs/target/
+/health_mobile/target/
+/health_service/target/
+/.idea
+/health_parent.iml
