@@ -10,7 +10,7 @@
           http://www.springframework.org/schema/mvc/spring-mvc.xsd
           http://www.springframework.org/schema/context
           http://www.springframework.org/schema/context/spring-context.xsd">
-    <context:component-scan base-package="cn.lanqiao"/>
+    <context:component-scan base-package="cn.lanqiao.controller"/>
     <mvc:annotation-driven>
         <mvc:message-converters register-defaults="true">
             <bean class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
