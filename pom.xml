@@ -11,7 +11,6 @@
         <module>health_backend</module>
         <module>health_common</module>
         <module>health_service</module>
-        <module>health_jobs</module>
         <module>health_mobile</module>
         <module>health_dao</module>
     </modules>
@@ -162,7 +161,13 @@
             <dependency>
                 <groupId>com.qiniu</groupId>
                 <artifactId>qiniu-java-sdk</artifactId>
-                <version>7.2.0</version>
+                <version>[7.7.0, 7.10.99]</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>2.8.5</version>
+                <scope>compile</scope>
             </dependency>
             <!--POI报表-->
             <dependency>

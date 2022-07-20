@@ -6,6 +6,7 @@ import com.qiniu.common.Zone;
 import com.qiniu.http.Response;
 import com.qiniu.storage.BucketManager;
 import com.qiniu.storage.Configuration;
+import com.qiniu.storage.Region;
 import com.qiniu.storage.UploadManager;
 import com.qiniu.storage.model.DefaultPutRet;
 import com.qiniu.util.Auth;
@@ -16,13 +17,13 @@ import com.qiniu.util.Auth;
  * @Description:七牛云工具类
  */
 public class QiniuUtils {
-    public static String accessKey = "oKCbQlrmoyne_Y3lBf44ohPkRQnEnfEyw3Ndmf9w";
-    public static String secretKey = "XGiIoNMixoVF5hOyUal9HVTaUlJ0SoahU0dBZsO-";
-    public static String bucket = "hrh-health";
+    public static String accessKey = "sPdLZESlvaUEqxf8dYAX29hCOOREW1jgWeMAr325";
+    public static String secretKey = "DHoqPUavy_rqzwDSAD_mfQlBLqpC-MO_ReHO5Bai";
+    public static String bucket = "child-health";
 
     public static void upload2Qiniu(String filePath, String fileName) {
         //构造一个带指定Zone对象的配置类
-        Configuration cfg = new Configuration(Zone.zone1());
+        Configuration cfg = new Configuration(Region.huadong());
         UploadManager uploadManager = new UploadManager(cfg);
         Auth auth = Auth.create(accessKey, secretKey);
         String upToken = auth.uploadToken(bucket);
@@ -43,7 +44,7 @@ public class QiniuUtils {
     //上传文件
     public static void upload2Qiniu(byte[] bytes, String fileName) {
         //构造一个带指定Zone对象的配置类
-        Configuration cfg = new Configuration(Zone.zone1());
+        Configuration cfg = new Configuration(Region.region0());
         //...其他参数参考类注释
         UploadManager uploadManager = new UploadManager(cfg);
 
@@ -71,7 +72,7 @@ public class QiniuUtils {
     //删除文件
     public static void deleteFileFromQiniu(String fileName) {
         //构造一个带指定Zone对象的配置类
-        Configuration cfg = new Configuration(Zone.zone1());
+        Configuration cfg = new Configuration(Region.region0());
         String key = fileName;
         Auth auth = Auth.create(accessKey, secretKey);
         BucketManager bucketManager = new BucketManager(auth, cfg);
@@ -82,5 +83,9 @@ public class QiniuUtils {
             System.err.println(ex.code());
             System.err.println(ex.response.toString());
         }
+    }
+
+    public static void main(String[] args) {
+        //upload2Qiniu("/User/huwei/Desktop");
     }
 }
